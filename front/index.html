@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,19 +8,38 @@
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <header>
     <div>
       <h3 class="log">perso</h3>
     </div>
   </header>
-  <h1>bienvenue sur super chat </h1>
+  <div class="game">
+    <div class="joueur1">
+      <h3>Joueur 1</h3>
+      <div id="compteur1"></div>
+      <div id="container1"></div>
+    </div>
+    <div class="joueur2">
+      <h3>Joueur 2</h3>
+      <div id="compteur2"></div>
+      <div id="container2"></div>
+    </div>
+
+  </div>
+
+
+
+  <!-- <h1>bienvenue sur super chat </h1>
   <div class="messagezone scroller">
     <div class="leftchat">
       <h2 class="p1">nom : raph</h2>
       <div class="txt1">
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id culpa aut expedita exercitationem ducimus animi, praesentium dolores beatae mollitia ea natus, explicabo delectus totam maiores repellat similique autem quam iure.</p>
-    </div>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id culpa aut expedita exercitationem ducimus animi,
+          praesentium dolores beatae mollitia ea natus, explicabo delectus totam maiores repellat similique autem quam
+          iure.</p>
+      </div>
     </div>
     <div class="rightchat">
       <h2 class="p2">nom : clair</h2>
@@ -27,7 +47,65 @@
 
       </div>
     </div>
+  </div> -->
+  <script src="../node_modules/socket.io/socket.io.js">
+  </script>
+  <script type="text/javascript">
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    let counter1 = 0;
+    let counter2 = 0;
 
-  </div>
+    function generateRandomDiv(containerId, JoueurId) {
+      const container = document.querySelector("." + JoueurId);
+      const div = document.createElement("div");
+      const width = getRandomInt(25, 50);
+      const height = width;
+      div.id = containerId;
+      div.style.width = `${width}px`;
+      div.style.height = `${height}px`;
+      div.style.borderRadius = `50%`;
+      div.style.backgroundColor = `rgb(${getRandomInt(0, 255)}, ${getRandomInt(0, 255)}, ${getRandomInt(0, 255)})`;
+      div.style.position = "absolute";
+      // div.style.left = `${getRandomInt(0, window.innerWidth + (window.innerWidth / 2) - width)}px`;
+      if (div.id == 'container2') {
+        div.style.left = `${getRandomInt((window.innerWidth / 2 + height), (window.innerWidth - height))}px`;
+        console.log(div.style.left)
+      }
+      if (div.id == 'container1') {
+        div.style.left = `${getRandomInt(0 + height, (window.innerWidth / 2 - height))}px`;
+        console.log(div.style.left)
+      }
+      console.log(div)
+      div.style.top = `${getRandomInt(0, window.innerHeight - height)}px`;
+      container.appendChild(div);
+      div.addEventListener("click", () => {
+        div.remove();
+        if (containerId === "container1") {
+          counter1++;
+        } else if (containerId === "container2") {
+          counter2++;
+        }
+        document.getElementById("compteur1").innerHTML = `Objets touchées: ${counter1}`;
+        document.getElementById("compteur2").innerHTML = `Objets touchées: ${counter2}`;
+      });
+      setTimeout(() => {
+        div.remove();
+      }, 4000);
+    }
+
+    setInterval(() => {
+      generateRandomDiv("container1", "joueur1");
+      generateRandomDiv("container2", "joueur2");
+    }, 1000);
+
+
+
+
+
+
+  </script>
 </body>
+
 </html>
