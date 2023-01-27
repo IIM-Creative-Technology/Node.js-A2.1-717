@@ -1,0 +1,43 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.messagezone{
+  
+  background-color: lightgray;
+  width: 50%;
+  margin: auto;
+  border-radius: 20px;
+}
+
+h1{
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.log{
+  text-align: right;
+  margin-right: 40px;
+}
+
+.leftchat{
+  max-width: 400px;
+  text-align: left;
+}
+
+.rightchat{
+  
+  text-align: right;
+  margin-left: 30px;
+  
+
+}
+
+.scroller {
+
+  height: 500px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
