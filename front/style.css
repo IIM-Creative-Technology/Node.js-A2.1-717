@@ -21,11 +21,36 @@ h1 {
   margin-right: 40px;
 }
 
+.leftchat{
+    position: relative;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #A8DDFD;
+    width: 200px;
+    height: fit-content;
+    text-align: left;
+    border-radius: 10px;
+
 .leftchat {
   max-width: 400px;
   text-align: left;
 }
 
+.rightchat{
+  position: relative;
+  margin-bottom: 10px;
+  margin-left: calc(100% - 240px);
+  padding: 10px;
+  background-color: #f8e896;
+  width: 200px;
+  height: fit-content;
+  text-align: left;
+  font: 400 .9em 'Open Sans', sans-serif;
+  border: 1px solid #dfd087;
+  border-radius: 10px;
+  
+  
 .rightchat {
 
   text-align: right;
