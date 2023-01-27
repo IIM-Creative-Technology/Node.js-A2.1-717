@@ -97,11 +97,11 @@
       div.style.position = "absolute";
       // div.style.left = `${getRandomInt(0, window.innerWidth + (window.innerWidth / 2) - width)}px`;
       if (div.id == 'container2') {
-        div.style.left = `${getRandomInt((window.innerWidth / 2 + height), (window.innerWidth - height))}px`;
+        div.style.left = `${getRandomInt((window.innerWidth / 2 + (height*2)), (window.innerWidth - (height*2)))}px`;
         console.log(div.style.left)
       }
       if (div.id == 'container1') {
-        div.style.left = `${getRandomInt(0 + height, (window.innerWidth / 2 - height))}px`;
+        div.style.left = `${getRandomInt(0 + (height*2), (window.innerWidth / 2 - height -  (height*2)))}px`;
         console.log(div.style.left)
       }
       console.log(div)
