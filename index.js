@@ -23,6 +23,14 @@ app.get("/", (req, res) => {
   res.json({msg: "ok"});
 });
 
+app.get("/admin", (req, res) => {
+  res.json({msg: "vous êtes dans l'admin"});
+});
+
+app.get("/user", (req, res) => {
+  res.json({msg: "vous êtes un user"});
+});
+
 app.post("/", (req, res) => {
   res.json({msg: "gooooooo"});
 });
