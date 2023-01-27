@@ -33,6 +33,6 @@ io.on("connection", (socket) => {
 })
 
 httpserver.listen(port, () => {
-  console.log(`Server running at http://${port}/`);
+  console.log(`Server running at http://localhost:${port}/`);
   
 })
